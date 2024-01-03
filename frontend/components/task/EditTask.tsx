@@ -42,9 +42,9 @@ const EditTask = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <IconEdit className="hover:cursor-pointer" />
+        <IconEdit data-testid="edit-task-button" className="hover:cursor-pointer" />
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent data-testid="edit-dialog" className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Edit Task</DialogTitle>
           <DialogDescription>

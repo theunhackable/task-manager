@@ -39,14 +39,14 @@ const CreateTask = ({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button>
+        <Button data-testid='create-task-button'>
           <div className="flex items-center gap-2">
             <IconSquarePlus />
             <p className="text-base font-bold">Create Task</p>
           </div>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[425px]">
+      <DialogContent data-testid='create-task-dialog' className="max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Create Task</DialogTitle>
           <DialogDescription>

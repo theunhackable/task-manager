@@ -39,7 +39,7 @@ const SignInPage = () => {
       <h2 className="text-center text-xl font-bold my-10">
         Welcome to the Task Manager!
       </h2>
-      <form className="flex flex-col gap-4 rounded-md border px-5 py-10">
+      <form data-testid="form" className="flex flex-col gap-4 rounded-md border px-5 py-10">
         <div>
           <Label htmlFor="email">Email:</Label>
           <Input
@@ -67,7 +67,11 @@ const SignInPage = () => {
             Sign up here
           </Link>
         </p>
-        <Button onClick={handleSubmit}>Login</Button>
+        <Button
+          data-testid="signin-button"
+          disabled={
+          email === "" || password === ""
+        } onClick={handleSubmit}>Login</Button>
       </form>
     </div>
   );

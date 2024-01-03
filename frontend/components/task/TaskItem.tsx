@@ -55,7 +55,7 @@ const TaskItem = ({
   };
 
   return (
-    <div id={task._id} className="max-w-2xl my-4 px-4 py-6 border rounded-md">
+    <div data-testid="task-item" id={task._id} className="max-w-2xl my-4 px-4 py-6 border rounded-md">
       <div className="mb-4 flex items-center justify-between">
         <p className="text-md font-semibold">{task.title}</p>
         <div className="flex items-center gap-5">

@@ -69,7 +69,7 @@ export default function Home() {
       <div className="px-4 py-6 mx-auto my-5 max-w-2xl">
         <div className="flex items-center justify-between mb-2">
           <div>
-            <h1 className="text-2xl font-bold">welcome {name}</h1>
+            <h1 data-testid='name' className="text-2xl font-bold">welcome {name}</h1>
             <p className="text-gray-500 text-sm">{email}</p>
           </div>
         </div>
