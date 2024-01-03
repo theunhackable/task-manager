@@ -7,7 +7,7 @@ export class SignInPage {
     this.page = page
   }
   async visit() {
-    await this.page.goto('http://127.0.0.1:3000/signin')
+    await this.page.goto('http://localhost:3000/signin')
   }
   async getEmailInput() {
     const emailInput = await this.page.locator('input[id="email"]');

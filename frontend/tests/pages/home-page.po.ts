@@ -7,15 +7,19 @@ export class HomePage {
     this.page = page
   }
   async visit() {
-    await this.page.goto('http://127.0.0.1:3000/')
+    await this.page.goto('http://localhost:3000/')
+  }
+
+  async getName() {
+    return this.page.getByTestId('name')
   }
   async getCreateButton() {
-    const createTaskButton = await this.page.getByTestId('create-task-button');
+    const createTaskButton = this.page.getByTestId('create-task-button');
     return createTaskButton
   }
   async getFirstTaskItem() {
-    const taskItems = await this.page.getByTestId('task-item').all()
-    return taskItems[0]
+    const taskItem = this.page.getByTestId('task-item').first()
+    return taskItem
   }
   async clickCreateTaskButton() {
     const createTaskButton = await this.getCreateButton();
@@ -23,13 +27,21 @@ export class HomePage {
   }
 
   async getCreateTaskDialog() {
-    const taskDialog = await this.page.getByTestId('create-task-dialog')
+    const taskDialog = this.page.getByTestId('create-task-dialog')
     return taskDialog
   }
-  async getEditForm() {
-    const editdialog = await this.page.getByTestId('')
+  async getEditTaskDialog(){
+    const editDialog = this.page.getByTestId('edit-task-dialog')
+    return editDialog
   }
-
+  async fillEditTaskForm(title: string, desc: string) {
+    const editDialog = await this.getEditTaskDialog()
+    const titleInput = editDialog.locator('input[id="title"]')
+    const descInput = editDialog.locator('input[id="desc"]')
+    await titleInput.fill('title edited')
+    await descInput.fill('new description')
+  }
+ 
   async interceptGetRequest(){
     await this.page.route(            
       'http://127.0.0.1:4000/tasks',
@@ -42,6 +54,51 @@ export class HomePage {
       },
   )
   }
-  
+  async interceptPostRequest(){
+    await this.page.route(            
+      'http://127.0.0.1:4000/tasks',
+      async route => {
+          route.fulfill({
+              status: 200,
+              contentType: 'application/json',
+              path: 'tests/fixtures/task-added-success.json'
+          })
+      },)
+  }
+
+  async interceptTitleEditRequest(){
+    await this.page.route(            
+      'http://127.0.0.1:4000/tasks/*',
+      async route => {
+          route.fulfill({
+              status: 200,
+              contentType: 'application/json',
+              path: 'tests/fixtures/task-edited-success.json'
+          })
+      },)
+  }
+  async intercepSwitchStatusRequest(){
+    await this.page.route(            
+      'http://127.0.0.1:4000/tasks/*',
+      async route => {
+          route.fulfill({
+              status: 200,
+              contentType: 'application/json',
+              path: 'tests/fixtures/task-status-switch-success.json'
+          })
+      },)
+  }
+
+  async intercepTaskDeleteRequest(){
+    await this.page.route(            
+      'http://127.0.0.1:4000/tasks/*',
+      async route => {
+          route.fulfill({
+              status: 200,
+              contentType: 'application/json',
+              path: 'tests/fixtures/task-deleted-success.json'
+          })
+      },)
+  }
   
 }
