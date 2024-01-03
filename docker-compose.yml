@@ -1,16 +1,35 @@
-version: '3.1'
+version: '3.9'
 
 services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      MONGODB_URL: "mongodb://task_manager_mongo:27017"
+      JWT_SECRET: "ea29a82faba3ca719e2b9e6502b8023202260890422e2e534a12e45b29cdf03b82353a9ef84cd4bfe84655bcb86d47b396d69d8499b1427ba397f320ee408185"
+      PORT: 4000
+      
+    depends_on:
+      - mongodb
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
   mongodb:
     image: mongo:latest
-    container_name: my-mongodb-container
-    ports:
-      - "27017:27017"
+    restart: always
+    container_name: task_manager_mongo
+    
     volumes:
       - ./data:/data/db   # Persist MongoDB data outside the container
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-
-# Add other services or configurations as needed
 
