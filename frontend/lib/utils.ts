@@ -67,3 +67,54 @@ export async function apiDelete(url:string, tokenRequired: boolean) {
     throw error
   }
 }
+
+
+export function validatePassword(password: string) {
+  if (password.length < 8) {
+    return "Password must be at least 8 characters long.";
+  }
+
+  if (password.length > 20) {
+    return "Password cannot exceed 20 characters.";
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    return "Password must contain at least one uppercase letter.";
+  }
+
+  if (!/[a-z]/.test(password)) {
+    return "Password must contain at least one lowercase letter.";
+  }
+
+  if (!/\d/.test(password)) {
+    return "Password must contain at least one digit.";
+  }
+
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    return "Password must contain at least one special character.";
+  }
+
+  return null;
+}
+
+export function validateEmail(email: string) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email)) {
+    return "Invalid email address.";
+  }
+
+  return null;
+}
+
+export function validateName(name: string) {
+  const nameRegex = /^[A-Za-z\s]+$/;
+
+  if (!nameRegex.test(name)) {
+    return "Invalid name. Please use only letters and spaces.";
+  }
+
+  return null;
+}
+
+

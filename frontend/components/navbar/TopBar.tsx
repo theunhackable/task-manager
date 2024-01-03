@@ -15,7 +15,6 @@ const TopBar = () => {
         else 
         setLoggedIn(prev => false)
     }
-    console.log(loggendIn)
   }, [loggendIn, path])
   const signOut = () => {
     localStorage.removeItem('name')

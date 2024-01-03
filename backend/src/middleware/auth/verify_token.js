@@ -15,7 +15,6 @@ async function verify_token(req, res, next) {
   try {
     const { user_id } = jwt.verify(token, process.env.JWT_SECRET)
     req.user_id = user_id
-    console.log(req.user_id)
     next()
   } catch (e) {
     return res.status(403).send({ message: e.message })

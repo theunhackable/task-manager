@@ -7,7 +7,8 @@ class AuthService {
       const user = await userService.get_by_email(email)
 
       if (!user) throw new Error('user not found.')
-      const password_match = user && bcrypt.compare(password, user.password)
+
+      const password_match = await bcrypt.compare(password, user.password)
       if (!password_match) {
         throw new Error('Incorrect password')
       }

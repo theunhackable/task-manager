@@ -4,12 +4,18 @@ import mongoose from 'mongoose'
 import dontenv from 'dotenv'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-
+import morgan from 'morgan'
+import helmet from 'helmet'
 dontenv.config()
+
 const app = express()
+
+
 app.use(cors({
   origin: ['http://localhost:3000']
 }))
+app.use(helmet())
+app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', appRouter)

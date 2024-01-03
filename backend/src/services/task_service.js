@@ -23,7 +23,6 @@ class TaskService {
   async get_by_creator_id(creator_id) {
     try {
       const tasks = await Task.find({ created_by: creator_id })
-      console.log(tasks)
       return tasks
     } catch (e) {
       throw error

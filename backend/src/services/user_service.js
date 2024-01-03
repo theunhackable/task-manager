@@ -23,7 +23,6 @@ class UserService {
   async get_by_email(email) {
     try {
       const user = await User.findOne({ email })
-      console.log(user)
       return user
     } catch (e) {
       throw e

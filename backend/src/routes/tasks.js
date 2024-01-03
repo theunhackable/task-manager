@@ -19,12 +19,10 @@ router.post('/', verify_token, async (req, res) => {
   const { body } = req
   const { title, desc } = body
   const user_id = req.user_id
-  console.log(title, desc, user_id)
   try {
     const task = await taskService.create(title, desc, user_id)
     return res.status(201).send({ message: 'task created successfully.', data: task })
   } catch (e) {
-    console.log(e)
     return res
       .status(500)
       .send({ message: 'error occoured while creating a task', data: null })
@@ -55,7 +53,6 @@ router.delete('/:id', verify_token, async (req, res) => {
     const task = await taskService.delete(id)
     res.send({message: "successfully updated the task.", data:task})
   } catch(e) {
-    console.log(e)
     res.status(404).send({message: e.message, data: null})
   }
 })
