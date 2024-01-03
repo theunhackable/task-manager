@@ -1,0 +1,11 @@
+{
+  "message": "successfully updated the task.",
+  "data": {
+      "_id": "65955fa1471349549b2518b4",
+      "title": "my task",
+      "desc": "my desc",
+      "created_by": "6594f399cf13207b65ac6534",
+      "status": "In Progress",
+      "__v": 0
+  }
+}
