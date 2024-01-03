@@ -1,7 +1,7 @@
 # Task Manager
 This is a simple app that lets you track your tasks.
 
-# Project Setup
+## Project Setup
 
 you can setup this project locally using docker.
 
@@ -9,7 +9,12 @@ you can setup this project locally using docker.
 - On the root of the `task-manager` folder run `docker compose up`.
 - Use sudo if necessary.
 
-# packages used
+## Features
+- signin/signup using email
+- input validation
+- Create, Read, Update, Delete tasks. Change Task Status.
+
+## Packages used
 
 ## Backend
 - express: http server
