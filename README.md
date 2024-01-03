@@ -56,5 +56,5 @@ npx playwright install
 
 Run tests.
 ```
-npx playwright test.
+npx playwright test
 ```
