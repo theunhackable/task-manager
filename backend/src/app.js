@@ -3,10 +3,13 @@ import appRouter from './routes/router.js'
 import mongoose from 'mongoose'
 import dontenv from 'dotenv'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 dontenv.config()
 const app = express()
-
+app.use(cors({
+  origin: ['http://localhost:3000']
+}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', appRouter)
