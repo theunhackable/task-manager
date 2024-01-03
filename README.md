@@ -7,7 +7,7 @@ This is a simple app that lets you track your tasks.
 you can setup this project locally using docker.
 
 - Clone the repository.
-- On the root of the `task-manager` folder run `docker compose up`.
+- In the `task-manager` folder, run `docker compose up`.
 - Use sudo if necessary.
 
 ## Features
