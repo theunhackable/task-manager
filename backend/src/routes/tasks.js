@@ -34,9 +34,7 @@ router.post('/', verify_token, async (req, res) => {
 router.patch('/:id', verify_token, async (req, res) => {
   const { body } = req
   const {id} = req.params
-  console.log('id',id)
   const { title, desc, status } = body
-
   try {
     const task = await taskService.get_by_id(id)
     if(title) task.title = title;
@@ -46,6 +44,19 @@ router.patch('/:id', verify_token, async (req, res) => {
     res.send({message: "successfully updated the task.", data:task})
   } catch(e) {
     res.send({message: e.message, data: null})
+  }
+})
+
+
+router.delete('/:id', verify_token, async (req, res) => {
+  const {id} = req.params
+
+  try {
+    const task = await taskService.delete(id)
+    res.send({message: "successfully updated the task.", data:task})
+  } catch(e) {
+    console.log(e)
+    res.status(404).send({message: e.message, data: null})
   }
 })
 

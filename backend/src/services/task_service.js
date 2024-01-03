@@ -30,20 +30,9 @@ class TaskService {
     }
   }
 
-  async update(task_id, data) {
-    try {
-      const updated_task = await Task.findByIdAndUpdate(task_id, data, {
-        new: true,
-      })
-      return updated_task
-    } catch (error) {
-      throw error
-    }
-  }
-
   async delete(task_id) {
     try {
-      const deleted_task = await Task.findByIdAndDelete(task_id)
+      const deleted_task = await Task.deleteOne({_id: task_id})
       return deleted_task
     } catch (error) {
       throw error
