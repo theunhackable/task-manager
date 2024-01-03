@@ -1,5 +1,6 @@
 # Task Manager
 This is a simple app that lets you track your tasks.
+![image](https://github.com/theunhackable/task-manager/assets/53367382/38d22fdb-5cef-4853-9243-1777ba16a53e)
 
 ## Project Setup
 
