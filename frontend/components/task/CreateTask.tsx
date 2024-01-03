@@ -50,7 +50,7 @@ const CreateTask = ({
         <DialogHeader>
           <DialogTitle>Create Task</DialogTitle>
           <DialogDescription>
-            Add the details of the task. Click Create Task when you're done.
+            {"Add the details of the task. Click Create Task when you're done."}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
@@ -78,6 +78,7 @@ const CreateTask = ({
         </div>
         <DialogFooter>
           <Button
+          data-testid='create-task-submit-button'
             onClick={handleSubmit}
             disabled={
               loading ||

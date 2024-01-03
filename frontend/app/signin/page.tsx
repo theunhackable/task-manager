@@ -62,7 +62,7 @@ const SignInPage = () => {
           />
         </div>
         <p className="text-sm">
-          Don't have an account?{" "}
+          {"Don't have an account? "}
           <Link className=" underline text-sm font-medium" href="/signup">
             Sign up here
           </Link>

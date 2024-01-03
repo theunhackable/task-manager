@@ -60,10 +60,15 @@ const TaskItem = ({
         <p className="text-md font-semibold">{task.title}</p>
         <div className="flex items-center gap-5">
           <EditTask task={task} handleDescChange={handleDescChange} handleTitleChange={handleTitleChange} />
-          <IconSquareLetterX
+          <Button
+            variant="link"
+            data-testid="delete-task-button"
             onClick={handleDelete}
+          >
+          <IconSquareLetterX
             className=" text-red-500 hover:cursor-pointer"
           />
+          </Button>
         </div>
       </div>
       <div className="flex items-start justify-between gap-5">

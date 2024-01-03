@@ -44,11 +44,11 @@ const EditTask = ({
       <DialogTrigger asChild>
         <IconEdit data-testid="edit-task-button" className="hover:cursor-pointer" />
       </DialogTrigger>
-      <DialogContent data-testid="edit-dialog" className="sm:max-w-[425px]">
+      <DialogContent data-testid="edit-task-dialog" className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Edit Task</DialogTitle>
           <DialogDescription>
-            Make changes to your Task here. Click save when you're done.
+           {"Make changes to your Task here. Click save when you're done."}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
