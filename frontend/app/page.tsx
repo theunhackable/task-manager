@@ -12,11 +12,11 @@ export default function Home() {
   const [name, setName] = useState<string | null>();
   const [email, setEmail] = useState<string | null>();
   const router = useRouter();
-  if (typeof window !== "undefined" && !localStorage.getItem("token")){
-    return router.push("/signin");
-  }
-
+  
   useEffect(() => {
+    if (typeof window !== "undefined" && !localStorage.getItem("token")){
+      return router.push("/signin");
+    }
     async function fetchTasks() {
       if (typeof window !== "undefined") {
         setName((prev) => localStorage.getItem("name"));
