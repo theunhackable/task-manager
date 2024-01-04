@@ -42,8 +42,8 @@ const TaskFilter = ({tasks, filteredTasks, setFilteredTasks}: {tasks: Task[], fi
           </div>
           </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 mx-5">
-        <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
+      <DropdownMenuContent className="w-[90vw] sm:w-56 mx-5">
+        <DropdownMenuLabel>Task Filter</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
           <DropdownMenuRadioItem value="All">All</DropdownMenuRadioItem>

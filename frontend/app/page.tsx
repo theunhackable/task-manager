@@ -12,7 +12,7 @@ export default function Home() {
   const [name, setName] = useState<string | null>();
   const [email, setEmail] = useState<string | null>();
   const router = useRouter();
- 
+
   useEffect(() => {
     if (typeof window !== "undefined" && !localStorage.getItem("token"))
       router.push("/signin");
@@ -24,7 +24,7 @@ export default function Home() {
       try {
         const res = await apiGet("http://127.0.0.1:4000/tasks", true);
         setTasks(res.data);
-        setFilteredTasks(res.data)
+        setFilteredTasks(res.data);
       } catch (e: any) {
         alert(e.message);
       }
@@ -69,17 +69,21 @@ export default function Home() {
   return (
     <main className="">
       <div className="px-4 py-6 mx-auto my-5 max-w-2xl">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-center justify-between mb-2">
-          <div>
-            <h1 data-testid='name' className="text-2xl font-bold">welcome {name}</h1>
-            <p className="text-gray-500 text-sm">{email}</p>
-          </div>
-          <div>
-            <TaskFilter tasks={tasks} setFilteredTasks={setFilteredTasks} filteredTasks={filteredTasks} />
-          </div>
+        <div className="my-4 mb-10">
+          <h1 data-testid="name" className="text-2xl font-bold">
+            welcome {name}
+          </h1>
+          <p className="text-gray-500 text-sm">{email}</p>
         </div>
-        <CreateTask setTasks={setTasks} />
-        <div className="my-10">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center justify-between mb-2">
+          <CreateTask setTasks={setTasks} />
+          <TaskFilter
+            tasks={tasks}
+            setFilteredTasks={setFilteredTasks}
+            filteredTasks={filteredTasks}
+          />
+        </div>
+        <div className="mb-10">
           {filteredTasks?.length !== 0 ? (
             filteredTasks?.map((task: Task) => (
               <TaskItem
