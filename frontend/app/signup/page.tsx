@@ -147,11 +147,11 @@ const SignUpPage = () => {
           </p>
         </div>
         <div>
-          <Label htmlFor="password">Confirm Password:</Label>
+          <Label htmlFor="confirm-password">Confirm Password:</Label>
           <Input
             onChange={handleConfirmChange}
             value={confirm}
-            id="password"
+            id="confirm-password"
             type="password"
             placeholder="confirm password"
             autoComplete="password"
