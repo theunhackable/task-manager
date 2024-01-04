@@ -1,12 +1,13 @@
 # Task Manager
 This is a simple app that lets you track your tasks.
+![image](https://github.com/theunhackable/task-manager/assets/53367382/38d22fdb-5cef-4853-9243-1777ba16a53e)
 
 ## Project Setup
 
 you can setup this project locally using docker.
 
 - Clone the repository.
-- On the root of the `task-manager` folder run `docker compose up`.
+- In the `task-manager` folder, run `docker compose up`.
 - Use sudo if necessary.
 
 ## Features
@@ -55,5 +56,5 @@ npx playwright install
 
 Run tests.
 ```
-npx playwright test.
+npx playwright test
 ```
